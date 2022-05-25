@@ -1,17 +1,19 @@
-import React, { createContext } from 'react';
-import Counter from './components/Counter';
-import { Box, Text } from '@chakra-ui/react';
-import CounterContextProvider from './context/CounterContextProvider';
+import React from 'react';
+// import { Box, Text } from '@chakra-ui/react';
+import { Routes, Route } from 'react-router-dom';
+import About from './components/About';
+import Home from './components/Home';
+import Header from './components/Header';
 
-export const UserContext = createContext();
 function App() {
   return (
-    <CounterContextProvider>
-      <Box align="center">
-        <Text>Counter Context API Reactjs</Text>
-        <Counter />
-      </Box>
-    </CounterContextProvider>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 }
 
